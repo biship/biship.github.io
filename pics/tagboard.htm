@@ -1,0 +1,44 @@
+function clear_message()
+{
+  document.tagform.message.focus();
+  document.tagform.message.select();
+}
+
+function pop_up_smilies()
+{
+  var smilie=window.open('','smilies','resizable=yes,scrollbars=yes,width=300,height=500');
+  smilie.opener=window;
+  smilie.document.open("text/html");
+  smilie.document.write('\<html\>\<head\>\<title\>Tag-Board Smilies\</title\>\<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"\>\<STYLE\>.nounder{text-decoration:none;}\</STYLE\>\<SCRIPT lang="Javascript" type="text/javascript"\>function add_smilie(a_smilie){if(window.opener.document.tagform!=window.undef){window.opener.document.tagform.message.value+=" "+a_smilie+" ";window.opener.document.tagform.message.focus();window.close();};};function wc(ty, sp, w, pic){document.write(\'\<tr align="center"\>\<td bgcolor="#DDDDDD"\>\<a href="javascript:add_smilie(\\\'\'+ty+\'\\\')" class="nounder"\>\<B\>\'+ty+\'\</B\>\</a\>\</td\>\<TD bgcolor="#FFFFFF"\>\</TD\>\<td bgcolor="#DDDDDD"\>\'+sp+\'\<a href="javascript:add_smilie(\\\'\'+ty+\'\\\')"\>\<img src="http://www.tag-board.com/smilies/\'+pic+\'.gif" width="\'+w+\'" height="15" border=0\>\</a\>\</td\>\</tr\>\');};\</SCRIPT\>\</HEAD\>');
+  smilie.document.write('\<body bgcolor="#FFFFFF" text="#000000" link="#000000" vlink="#000000"\>\<table width="0%" border="0" RULES=NONE cellspacing="1" cellpadding="2" align="center"\>\<tr bgcolor="#a4acb8" valign="center" align="center"\>\<td nowrap\>\<b\>Smilie Code\</b\>\</td\>\<TD bgcolor="#FFFFFF"\>\</TD\>\<td nowrap\>\<b\>Image\<BR\>Replacement\</b\>\</td\>\</tr\>');
+  smilie.document.write('\<SCRIPT\>wc(":)","",15,"smile");wc(":(","",15,"sad");wc(":o","",15,"shocked");wc(":D","",15,"biggrin");wc(";)","",15,"wink");wc(":p","",15,"tongue");wc(":artist:","",15,"artist");wc(":bowling:","",15,"bowl");wc(":mad:","",15,"mad");wc(":dizzy:","",15,"dizzy");wc(":nono:","",15,"nono");wc(":eyepatch:","",15,"pirate");wc(":sick:","",15,"sick");wc(":cry:","",15,"cry");wc(":uhh:","",15,"uhh");wc(":wacko:","",15,"wacko");wc(":yinyang:","",15,"yin-yang");wc(":frog:","&nbsp;&nbsp;",25,"frog");\</SCRIPT\>\</TABLE\>\</BODY\>');
+  smilie.document.write('\</HTML\>');
+  smilie.document.close();
+  return false;
+}
+
+function rememberme()
+{
+        var tempdate=new Date()
+
+        document.write ('\<input name="curhour" type="hidden" value="'+tempdate.getHours()+'"\>');
+        document.write ('\<input name="curmin" type="hidden" value="'+tempdate.getMinutes()+'"\>');
+//        document.write ('\<input name="cursec" type="hidden" value="'+tempdate.getSeconds()+'\>');
+
+	start_net();
+}
+function Clear_Last_Message_on_Submit() 
+{ 
+  document.tagform.submit();
+  setTimeout("clear_message()",200);
+  return false;
+}
+
+function start_net()
+{
+}
+
+function netscape_support()
+{
+}
+
